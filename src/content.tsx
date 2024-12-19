@@ -1,13 +1,14 @@
 import cssText from "data-text:~style.css"
-import type { PlasmoCSConfig } from "plasmo"
+import type { PlasmoCSConfig , PlasmoGetStyle} from "plasmo"
 
-import { CountButton } from "~features/count-button"
+import { SpeechReader  } from "~features/speech_reader"
 
-export const config: PlasmoCSConfig = {
-  matches: ["https://www.plasmo.com/*"]
-}
+// export const config: PlasmoCSConfig = {
+//   // matches: ["https://github.com/PlasmoHQ/examples/blob/main/with-tailwindcss/src/content.tsx"]
+//   css:["style.css"]
+// }
 
-export const getStyle = () => {
+export const getStyle: PlasmoGetStyle = () => {
   const style = document.createElement("style")
   style.textContent = cssText
   return style
@@ -15,8 +16,8 @@ export const getStyle = () => {
 
 const PlasmoOverlay = () => {
   return (
-    <div className="plasmo-z-50 plasmo-flex plasmo-fixed plasmo-top-32 plasmo-right-8">
-      <CountButton />
+    <div className="z-50 flex fixed top-32 left-80 p-4 rounded-lg">
+      <SpeechReader/>
     </div>
   )
 }
